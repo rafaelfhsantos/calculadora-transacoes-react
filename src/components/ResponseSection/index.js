@@ -2,6 +2,13 @@ import Loading from "../Loading";
 import { DivValue, H2, Section, Span, SpanValue } from "./style";
 import { useMain } from "../../Provider";
 
+function parseBRL(value) {
+  return Number(value).toLocaleString("pt-BR", {
+    style: "currency",
+    currency: "BRL",
+  });
+}
+
 const ResponseSection = ({ children, ...rest }) => {
   const { responseData } = useMain();
 
@@ -13,7 +20,9 @@ const ResponseSection = ({ children, ...rest }) => {
         {useMain().isFetching ? (
           <Loading></Loading>
         ) : (
-          <SpanValue>R$ {responseData ? responseData["1"] : "0,00"}</SpanValue>
+          <SpanValue>
+            {responseData ? parseBRL(responseData["1"]) : "R$ 0,00"}
+          </SpanValue>
         )}
       </DivValue>
       <DivValue className="first-div-value">
@@ -21,7 +30,9 @@ const ResponseSection = ({ children, ...rest }) => {
         {useMain().isFetching ? (
           <Loading></Loading>
         ) : (
-          <SpanValue>R$ {responseData ? responseData["15"] : "0,00"}</SpanValue>
+          <SpanValue>
+            {responseData ? parseBRL(responseData["15"]) : "R$ 0,00"}
+          </SpanValue>
         )}
       </DivValue>
       <DivValue className="first-div-value">
@@ -29,7 +40,9 @@ const ResponseSection = ({ children, ...rest }) => {
         {useMain().isFetching ? (
           <Loading></Loading>
         ) : (
-          <SpanValue>R$ {responseData ? responseData["30"] : "0,00"}</SpanValue>
+          <SpanValue>
+            {responseData ? parseBRL(responseData["30"]) : "R$ 0,00"}
+          </SpanValue>
         )}
       </DivValue>
       <DivValue className="first-div-value">
@@ -37,7 +50,9 @@ const ResponseSection = ({ children, ...rest }) => {
         {useMain().isFetching ? (
           <Loading></Loading>
         ) : (
-          <SpanValue>R$ {responseData ? responseData["90"] : "0,00"}</SpanValue>
+          <SpanValue>
+            {responseData ? parseBRL(responseData["90"]) : "R$ 0,00"}
+          </SpanValue>
         )}
       </DivValue>
     </Section>

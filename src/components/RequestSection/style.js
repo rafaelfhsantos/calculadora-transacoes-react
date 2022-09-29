@@ -44,6 +44,36 @@ export const Input = styled.input`
   }
 `;
 
+export const DivInputAmount = styled.div`
+  display: flex;
+  align-items: center;
+`;
+
+export const InputAmount = styled.input`
+  border: 1px solid #eee;
+  border-radius: 5px;
+  height: 40px;
+  padding: 5px 15px 5px 35px;
+  font-size: 16px;
+  appearance: none;
+  box-sizing: border-box;
+  height: 52px;
+  width: 100%;
+  &:focus,
+  textarea:focus {
+    outline: #58f solid 1px;
+  }
+`;
+
+export const SpanBRL = styled.span`
+  margin-left: 15px;
+  z-index: 999;
+  position: absolute;
+  font-size: 16px;
+  height: 55px;
+  line-height: 52px;
+`;
+
 export const Span = styled.span`
   font-size: 14px;
   font-weight: 600;

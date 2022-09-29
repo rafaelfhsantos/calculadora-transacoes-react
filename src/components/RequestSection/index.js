@@ -1,34 +1,31 @@
-import { H1, Input, P, Section, Span } from "./style";
+import {
+  DivInputAmount,
+  H1,
+  Input,
+  InputAmount,
+  P,
+  Section,
+  Span,
+  SpanBRL,
+} from "./style";
 import { useMain } from "../../Provider";
 
 const RequestSection = ({ children, ...rest }) => {
   const { setAmount, setInstallments, setMdr } = useMain();
 
-  // function toBRL(target) {
-  //   setAmount(target.value);
-  //   if (typeof target.value === "string") {
-  //     console.log(
-  //       Number(target.value).toLocaleString("pt-BR", {
-  //         style: "currency",
-  //         currency: "BRL",
-  //       })
-  //     );
-
-  //     target.value = Number(target.value).toLocaleString("pt-BR", {
-  //       style: "currency",
-  //       currency: "BRL",
-  //     });
-  //   }
-  // }
-
   return (
     <Section>
       <H1>Simule sua Antecipação</H1>
       <P>Informe o valor da venda *</P>
-      <Input
-        data-testid={"input-element-amount"}
-        onChange={(e) => setAmount(e.target.value)}
-      />
+      <DivInputAmount>
+        <InputAmount
+          data-testid={"input-element-amount"}
+          type={"number"}
+          onChange={(e) => setAmount(e.target.value)}
+        />
+        <SpanBRL>R$</SpanBRL>
+      </DivInputAmount>
+
       <P>Em quantas parcelas *</P>
       <Input
         data-testid={"input-element-installments"}

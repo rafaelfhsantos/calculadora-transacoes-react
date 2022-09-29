@@ -5,7 +5,7 @@ import { toast } from "react-toastify";
 export const MainContext = createContext();
 
 const api = axios.create({
-  baseURL: "https://frontend-challenge-7bu3nxh76a-uc.a.run.app?internalError",
+  baseURL: "https://frontend-challenge-7bu3nxh76a-uc.a.run.app",
 });
 
 export default api;
@@ -40,13 +40,13 @@ export const MainProvider = ({ children }) => {
       .post("", data)
       .then((response) => {
         setIsFetching(false);
+        toast.dismiss();
         setResponseData(response.data);
         toast.dismiss();
 
         setAmountError(false);
       })
       .catch((err) => {
-        console.log(err);
         if (err.response.data?.message === "Timeout") {
           toast.error(
             "O servidor atingiu o tempo limite de espera. Tente novamente mais tarde.",
